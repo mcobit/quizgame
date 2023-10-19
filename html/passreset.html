@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/images/icons/favicon.png" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Password reset</title>
+</head>
+
+<body>
+    <div class="header" id="header">
+        <div id="headercontent" class="headercontent">
+            <a href="/">
+                <img class="logo" src="/images/misc/rhein-main-logo.svg" alt="Rhein Main RNA Logo">
+            </a>
+            <div class="headersubwrapper" id="headersubwrapper">
+                <div class="headerbuttons">
+                    <a href="affiliations.html" class="mainmenuicons">
+                        Affiliations
+                    </a>
+                    <a href="publications.html" class="mainmenuicons">
+                        Publications
+                    </a>
+                    <a href="events.html" class="mainmenuicons">
+                        Events
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div id="content" class="content">
+            <noscript class="cnote">This website uses javascript to show its content. Please activate javascript to get the best experience.</noscript>
+            <div class="signupwrapper">
+                <h2>
+                    What did you forget?
+                </h2>
+                <form id="resetform" class="signupform">
+                    <select class="formelement" id="resettype">
+                        <option value="password">password</option>
+                        <option value="username">username</option>
+                    </select>
+                    <div class="toggle-visible visible">
+                        Enter your username here:
+                    </div>
+                    <div class="toggle-visible hidden">
+                        Enter your email here:
+                    </div>
+                    <input type="text" id="user" name="username" placeholder="username"
+                        class="toggle-visible formelement visible">
+                    <input type="text" id="email" name="email" placeholder="email"
+                        class="toggle-visible formelement hidden">
+                    <br>
+                    <input type="submit" value="submit" class="signupsubmit">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="footer" id="footer">
+    </div>
+    <script src="js/passreset.js"></script>
+    <script src="js/helperfunctions.js"></script>
+</body>
+
+</html>

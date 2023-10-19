@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="content" class="content">
+            <h2>
+                Please provide your credentials
+            </h2>
+            <div id="messagebox"></div>
+            <noscript class="cnote">This website uses javascript to show its content. Please activate javascript to get the best experience.</noscript>
+            <br>
+            <form id="loginform" action="/login" method="post">
+                Username:<br>
+                <input type="text" name="username" placeholder="Username" required class="formelement"><br><br>
+                Password:<br>
+                <input type="password" name="password" placeholder="Password" required class="formelement"><br><br>
+                <input type="submit" value="login" id="loginbutton">
+            </form>
+            <br>
+            <div>
+                <a href="/passreset">Forgot your username or password?</a>
+            </div>
+        </div>
+        <div class="footer" id="footer">
+        </div>
+    </div>
+    <script src="js/login.js"></script>
+
+</body>
+
+</html>
