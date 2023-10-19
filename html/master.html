@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizClient</title>
+</head>
+
+<body>
+    <h3>Quiz Client!</h3>
+    <br>
+    name:<br>
+    <input type="text" id="namebox">
+    <br>
+    message:<br>
+    <input type="text" id="messagebox">
+    <button onclick="sendMessage()">Send Msg</button>
+</body>
+<script>
+    // Create WebSocket connection.
+    const socket = new WebSocket('ws://localhost:3000');
+
+    // Connection opened
+    socket.addEventListener('open', function (event) {
+        console.log('Connected to WS Server')
+    });
+
+    // Listen for messages
+    socket.addEventListener('message', function (event) {
+        console.log('Message from server ', event.data);
+    });
+
+    const sendMessage = () => {
+        message = { name: document.getElementById('namebox').value, message: document.getElementById('messagebox').value }
+        socket.send(JSON.stringify(message))
+        console.log(new Date)
+    }
+</script>
+
+</html>

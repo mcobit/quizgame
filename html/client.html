@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizClient</title>
+</head>
+
+<body>
+    <h3>Quiz Client!</h3>
+    <br>
+    server:<br>
+    <input type="text" id="serverbox"><button type="button" id="connectbutton">Connect</button>
+    <br>
+    <div id="connected"></div>
+    <br>
+    name:<br>
+    <input type="text" id="namebox">
+    <br>
+    <br>
+    message:<br>
+    <input type="text" id="messagebox">
+    <button onclick="sendMessage()">Send Msg</button>
+
+</body>
+<script>
+    let socket
+
+    document.getElementById('connectbutton').addEventListener('click', function (event) {
+        const ip = document.getElementById('serverbox').value
+        // Create WebSocket connection.
+        socket = new WebSocket(`ws://${ip}:3000`);
+
+        // Connection opened
+        socket.addEventListener('open', function (event) {
+            document.getElementById('connected').textContent = "connected!"
+            console.log('Connected to WS Server')
+        });
+
+        // Connection closed
+        socket.addEventListener('close', function (event) {
+            document.getElementById('connected').textContent = "disconnected!"
+            console.log('Disconnected from WS Server')
+        });
+
+        // Listen for messages
+        socket.addEventListener('message', function (event) {
+            console.log('Message from server ', event.data);
+        });
+    })
+
+    const sendMessage = () => {
+        message = { name: document.getElementById('namebox').value, message: document.getElementById('messagebox').value }
+        socket.send(JSON.stringify(message))
+        console.log(new Date)
+    }
+</script>
+
+</html>
