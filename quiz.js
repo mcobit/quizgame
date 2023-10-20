@@ -47,27 +47,33 @@ wss.on('connection', function connection(ws) {
       if (client !== ws && client.readyState === WebSocket.OPEN) {
         client.send(message)
       }
-    });
+    })
     
-  });
-});
+  })
+})
 
 app.use(cookieParser()) // read cookies (needed for auth)
+
 app.use(bodyParser.urlencoded({ extended: true })) // get information from html forms
 app.use(express.urlencoded({ extended: true }))
+
 app.use(session({
   secret: process.env.SESSION, // session secret
   resave: false,
   saveUninitialized: true,
   cookie: { maxAge: 60 * 60 * 1000 } // 1 hour
 }))
+
 app.use(passport.initialize())
 app.use(passport.session()) // persistent login sessions
 passport.use(User.createStrategy())
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
+
 app.use(express.json())
+
 app.use("/", loginroutes)
 app.use("/", frontendroutes)
 app.use(express.static('static'));
+
 server.listen(process.env.PORT, () => console.log(`Listening on port ${process.env.PORT}`))
