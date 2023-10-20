@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const passport = require('passport')
+const UserDetails = require('../dbmodels/usermodel');
 
 router.get("/login", function (req, res) {
     res.sendFile('login.html', { root: './html' })
-  })
+})
 
 // Login route
 router.post('/login', passport.authenticate('local'), function (req, res) {
@@ -19,6 +20,17 @@ router.post('/login', passport.authenticate('local'), function (req, res) {
 router.get('/signup', function (req, res) {
     res.sendFile('signup.html', { root: './html' })
 });
+
+router.post("/signup", async (req, res) => {
+    try {
+        const newUser = new UserDetails({ ...req.body })
+        const insertedUser = await UserDetails.register(newUser, req.body.password)
+        return res.status(201).json(insertedUser)
+    } catch (e) {
+        console.log(e)
+        return res.status(400).json({ message: e.message })
+    }
+})
 
 // Pass reset route
 router.get('/passreset', function (req, res) {

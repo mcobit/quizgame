@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/login.css">
     <title>Log in</title>
 </head>
 
@@ -14,14 +14,13 @@
             <h2>
                 Please provide your credentials
             </h2>
-            <div id="messagebox"></div>
             <noscript class="cnote">This website uses javascript to show its content. Please activate javascript to get the best experience.</noscript>
-            <br>
-            <form id="loginform" action="/login" method="post">
-                Username:<br>
-                <input type="text" name="username" placeholder="Username" required class="formelement"><br><br>
-                Password:<br>
-                <input type="password" name="password" placeholder="Password" required class="formelement"><br><br>
+            <form class="loginform" id="loginform" action="/login" method="post">
+                <label for="username" style="margin-top: 5px;">Username</label>
+                <input id="username" type="text" name="username" placeholder="Username" required class="formelement">
+                <label for="password" style="margin-top: 5px;">Password</label>
+                <input id="password" type="password" name="password" placeholder="Password" required class="formelement">
+                <div id="messagebox"></div>
                 <input type="submit" value="login" id="loginbutton">
             </form>
             <br>

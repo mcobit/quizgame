@@ -10,6 +10,8 @@ const cookieParser = require('cookie-parser')
 require("dotenv").config()
 const User = require('./dbmodels/usermodel')
 const loginroutes = require("./routes/loginRoutes.js")
+const frontendroutes = require("./routes/frontendRoutes.js")
+
 // Mongoose settings
 mongoose.set("strictQuery", false)
 mongoose.set('runValidators', true)
@@ -66,5 +68,6 @@ passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 app.use(express.json())
 app.use("/", loginroutes)
+app.use("/", frontendroutes)
 app.use(express.static('static'));
 server.listen(process.env.PORT, () => console.log(`Listening on port ${process.env.PORT}`))

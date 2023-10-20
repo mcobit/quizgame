@@ -132,12 +132,21 @@ async function eventHandlers() {
     })
 
     document.getElementById('image').addEventListener('change', async function () {
-        let reader = new FileReader()
+        const reader = new FileReader()
         reader.onload = function () {
             let output = document.getElementById('imagepreview')
             output.src = reader.result
-        };
+        }
         reader.readAsDataURL(document.getElementById('image').files[0])
+        const imgremove = document.createElement('button')
+        imgremove.textContent = "remove image"
+        imgremove.style = "width: 115px; height: 21px;"
+        imgremove.addEventListener('click', async function () {
+            document.getElementById('image').value = ""
+            document.getElementById('imagepreview').src = " "
+            imgremove.remove()
+        })
+        document.getElementById('image').after(imgremove)
     })
 
 }
@@ -163,20 +172,8 @@ async function createAdditionalFields() {
     document.getElementById('signupform').prepend(toprow)
 }
 
-async function createLoadicon() {
-    const loadicon = document.createElement('div')
-    loadicon.classList.add('loadicon')
-    loadicon.id = 'loadicon'
-    document.body.appendChild(loadicon)
-}
-
-async function removeLoadicon() {
-    document.getElementById('loadicon').remove()
-}
-
 async function addentry(type, formdata) {
     try {
-        createLoadicon()
         const response = await fetch('/' + type, {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
@@ -184,7 +181,6 @@ async function addentry(type, formdata) {
         })
         const json = await response.json()
         if (response.status == '201' || response.status == '200') {
-            removeLoadicon()
             return 'ok'
         } else {
             const message = document.createElement('div')
@@ -205,7 +201,6 @@ async function addentry(type, formdata) {
                 document.getElementById('messagebox').replaceChildren(message)
             }
         }
-        removeLoadicon()
     } catch (e) {
         console.log(e)
     }
@@ -214,7 +209,6 @@ async function addentry(type, formdata) {
 
 async function upload(type, imagetype, formdata) {
     try {
-        createLoadicon()
         await fetch('/' + imagetype + 'upload', {
             method: 'POST',
             body: formdata,
@@ -222,7 +216,6 @@ async function upload(type, imagetype, formdata) {
                 processData: false, contentType: false,
             },
         })
-        removeLoadicon()
     } catch (e) {
         console.log(e)
     }

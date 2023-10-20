@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/signup.css">
     <link rel="icon" type="image/png" href="/images/icons/favicon.png" />
     <title>Sign up</title>
 </head>
@@ -32,52 +33,20 @@
                         class="formelement">
                     <input value='' type="email" id="email_retype" name="email_retype" placeholder="retype email*"
                         required class="formelement">
-                    <label for="role" style="margin-top: 5px;">function</label>
+                    <label for="role" style="margin-top: 5px;">role</label>
                     <select name="role" id="role" required class="formelement">
                         <option value='member'>User</option>
-                        <option value='groupleader'>Group Leader</option>
+                        <option value='admin'>Administrator</option>
                     </select>
-                    <label for="title" style="margin-top: 5px;">title</label>
-                    <input value='' type="text" id="title" name="title" placeholder="enter title" class="formelement">
                     <label for="firstname" style="margin-top: 5px;">firstname*</label>
                     <input value='' type="text" id="firstname" name="firstname" placeholder="enter firstname*" required
                         class="formelement">
                     <label for="lastname" style="margin-top: 5px;">lastname*</label>
                     <input value='' type="text" id="lastname" name="lastname" placeholder="enter lastname*" required
                         class="formelement">
-                    <label for="street" style="margin-top: 5px;">street</label>
-                    <input value='' type="text" id="street" name="street" placeholder="enter street"
-                        class="formelement">
-                    <label for="housenumber" style="margin-top: 5px;">housenumber</label>
-                    <input value='' type="text" id="housenumber" name="housenumber" placeholder="enter housenumber"
-                        class="formelement">
-                    <label for="zipcode" style="margin-top: 5px;">zipcode</label>
-                    <input value='' type="text" id="zipcode" name="zipcode" placeholder="enter zipcode"
-                        class="formelement">
-                    <label for="city" style="margin-top: 5px;">city</label>
-                    <input value='' type="text" id="city" name="city" placeholder="enter city" class="formelement">
-                    <label for="province" style="margin-top: 5px;">province</label>
-                    <input value='' type="text" id="province" name="province" placeholder="enter province"
-                        class="formelement">
                     <label for="image" style="margin-top: 5px;">image</label>
-                    <input type="file" id="image" name="image" class="formelement">
+                    <input type="file" id="image" name="image" class="formelement" single>
                     <img id="imagepreview" class="imagepreview">
-                    <label for="affiliations" style="margin-top: 5px;">choose affiliations</label>
-                    <input value='' type="text" id="affiliations" name="affiliations" placeholder="choose affiliations"
-                        class="formelement">
-                    <label for="researchinterests" style="margin-top: 5px;">choose predefined researchinterests</label>
-                    <input value='' type="text" id="researchinterests" name="researchinterests"
-                        placeholder="choose predefined researchinterests" class="formelement">
-                    <label for="suggest_researchinterests" style="margin-top: 5px;">suggest other
-                        researchinterests</label>
-                    <input value='' type="text" id="suggest_researchinterests" name="suggest_researchinterests"
-                        placeholder="suggest other researchinterests" class="formelement">
-                    <label for="methods" style="margin-top: 5px;">choose predefined methods</label>
-                    <input value='' type="text" id="methods" name="methods" placeholder="choose predefined methods"
-                        class="formelement">
-                    <label for="suggest_methods" style="margin-top: 5px;">suggest other methods</label>
-                    <input value='' type="text" id="suggest_methods" name="suggest_methods"
-                        placeholder="suggest other methods" class="formelement">
                     <div style="display: flex; margin-top: 20px; margin-bottom: 20px;"><b>Please check this box to
                             indicate, that you have read, understood and agreed to our&nbsp;<a href="legal.html"
                                 target="_blank">privacy policy</a></b> <input type="checkbox" class="privacyagree"
